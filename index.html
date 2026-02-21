@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- DaisyUI & Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font Awsam CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="./assets/job.png" type="image/x-icon">
+
+    <!-- Font Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <h1 class="main-title">Job Application Tracker</h1>
+    <div class="dashboard">
+        <div class="box">
+            <h2>Total</h2>
+            <p id="totalCount">8</p>
+        </div>
+
+        <div class="box">
+            <h2>Interview</h2>
+            <p id="interviewCount">0</p>
+        </div>
+
+        <div class="box">
+            <h2>Rejected</h2>
+            <p id="rejectedCount">0</p>
+        </div>
+    </div>
+
+    <div class="section-header">
+        <h2>Job List</h2>
+        <p id="sectionCount">8 Jobs</p>
+    </div>
+
+    <div class="tabs">
+        <button onclick="showTab('all')">All</button>
+        <button onclick="showTab('interview')">Interview</button>
+        <button onclick="showTab('rejected')">Rejected</button>
+    </div>
+
+    <div id="jobContainer" class="job-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

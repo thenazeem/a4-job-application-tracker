@@ -3,12 +3,14 @@
 <head>
 
     <title>Job Application Tracker</title>
+
     <link rel="stylesheet" href="style.css">
 
     <!-- DaisyUI & Tailwind -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Font Awsam CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,37 +22,83 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
 </head>
-<body>
-    <h1 class="main-title">Job Application Tracker</h1>
-    <div class="dashboard">
-        <div class="box">
-            <h2>Total</h2>
-            <p id="totalCount">8</p>
+<body class="bg-gray-600">
+    <header>
+        <section class=" ">
+            <div class="w-[80%] mx-auto">
+            <h1 class="main-title text-center text-blue-100 font-extrabold md:text-4xl text-2xl py-8 ">Job Application Tracker</h1>
+        </div>
+        </section>
+
+        <section class="flex">
+                <div class=" stats shadow dashboard mx-auto grid grid-cols-3 ">
+  <div class=" stat place-items-center bg-gray-200 box">
+    <div class=" text-xl text-black">Total</div>
+    <div id="totalCount" class="stat-value text">8</div>
+  </div>
+
+  <div class="stat place-items-center bg-gray-200 box">
+    <div class="text-xl text-black">Interview</div>
+    <div id="interviewCount" class="stat-value text-green-500">0</div>
+  </div>
+
+  <div class="stat place-items-center bg-gray-200 box">
+    <div class="text-xl text-black">Rejected</div>
+    <div id="rejectedCount" class="stat-value text-red-500">0</div>
+  </div>
+</div>
+        </section>
+
+        
+    </header>
+    
+
+    <main>
+
+        <div class=" flex mt-4">
+            <div class="alert section-header items-center   w-[80%] mx-auto flex justify-between rounded-3xl">
+                <h2 class="text-xl">Available Jobs</h2>
+                <p id="sectionCount" class="rounded-3xl font-bold text-2xl px-6  text-red-800"> 8 Jobs</p>
+            </div>
+
         </div>
 
-        <div class="box">
-            <h2>Interview</h2>
-            <p id="interviewCount">0</p>
+<section class="flex justify-center mt-4">
+  <div class="flex gap-3">
+    
+    <button id="tabAll" onclick="showTab('all')" 
+        class="tab-btn px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        All
+    </button>
+
+    <button id="tabInterview" onclick="showTab('interview')" 
+        class="tab-btn px-4 py-2 bg-gray-300 rounded hover:bg-green-500">
+        Interview
+    </button>
+
+    <button id="tabRejected" onclick="showTab('rejected')" 
+        class="tab-btn px-4 py-2 bg-gray-300 rounded hover:bg-red-500">
+        Rejected
+    </button>
+  </div>
+</section>
+        <!--  -->
+        
+    
+    
+
+    <div id="jobContainer" class="w-[80%] mx-auto job-container mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 "></div>
+
+    <div id="noJobModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class=" bg-white rounded-lg p-6 w-[80%] max-w-sm text-center relative">
+            <img class="rounded-3xl" src="./assets/no-job.jpg" alt="">
+            <h2 class="mt-2 text-xl font-bold mb-4">No Jobs Available</h2>
+            <p class="mb-4">Check back soon for new job opportunities</p>
+            <button id="closeModal" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Close</button>
         </div>
-
-        <div class="box">
-            <h2>Rejected</h2>
-            <p id="rejectedCount">0</p>
-        </div>
     </div>
-
-    <div class="section-header">
-        <h2>Job List</h2>
-        <p id="sectionCount">8 Jobs</p>
-    </div>
-
-    <div class="tabs">
-        <button onclick="showTab('all')">All</button>
-        <button onclick="showTab('interview')">Interview</button>
-        <button onclick="showTab('rejected')">Rejected</button>
-    </div>
-
-    <div id="jobContainer" class="job-container"></div>
+    
+    </main>
 
     <script src="script.js"></script>
 </body>
